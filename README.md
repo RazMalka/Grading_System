@@ -1,6 +1,6 @@
 # Course Grading System
 
-![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square) 
+![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)  Live Site: https://braudegradingclient.herokuapp.com
 
 ### Brief
 ```
