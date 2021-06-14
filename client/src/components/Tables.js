@@ -68,6 +68,18 @@ function getHeaders() {
 	return <></>
 }
 
+
+function maxLengthCheck(id)
+{
+	let object = document.getElementById(id);
+	if (object.value.length > object.maxLength)
+	  object.value = object.value.slice(0, object.maxLength)
+	if (object.value > 100)
+	  object.value = 100
+	if (object.value < 0)
+		  object.value = 0
+}
+
 function getContent(id, grade) {
 	if (loc === 'view-grades') {
 		return <>
@@ -76,7 +88,7 @@ function getContent(id, grade) {
 	}
 	else if (loc === 'edit-grades') {
 		return <>
-		  <td><input id={'vg-'+id+'-g'} name={grade} className="userInput mb-4 w-50 text-center" placeholder={grade}/></td>
+		  <td><input type="number" maxLength="3" onInput={maxLengthCheck.bind(this, 'vg-'+id+'-g')} id={'vg-'+id+'-g'} name={grade} className="userInput mb-4 w-50 text-center" placeholder={grade}/></td>
 		  {/* change to textbox with only 0-100 numerical value */}
 		  <td onClick={updateRow.bind(this, id)}><Button variant="primary" size="xs" style={{color:'white'}}n>Update</Button></td>
 		  <td onClick={removeRow.bind(this, id)}><Button variant="primary" size="xs" style={{color:'white'}}>Remove</Button></td>

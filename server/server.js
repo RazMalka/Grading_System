@@ -8,19 +8,24 @@ const moment = require("moment");
 const config = require("./config");
 const User = require("./models/user");
 const Course = require("./models/course");
+const path = require('path');
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 (async function () {
-    const port = process.env.PORT || 5500;
+    const PORT = process.env.PORT || 5500;
+	const buildPath = path.join(__dirname, '..', 'build');
+	app.use(express.static(buildPath));
+
     const usersSignup = [];
     const dbUri = `mongodb+srv://${config.databaseUser}:${config.databasePassword}@cluster0.tvwdp.mongodb.net/GradingDB?retryWrites=true&w=majority`;
     await mongoose.connect(dbUri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
+
     app.use(cors());
     app.use(bodyParser.json());
     app.use((req, res, next) => {
@@ -355,6 +360,6 @@ mongoose.set('useCreateIndex', true);
     });
 
     //listening to port 5500
-    app.listen(port);
+    app.listen(PORT);
     console.log("listening....");
 })();

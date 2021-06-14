@@ -239,6 +239,17 @@ function addGradeToggle() {
 	}
 }
 
+function maxLengthCheck()
+{
+	let object = document.getElementById('newGrade');
+	if (object.value.length > object.maxLength)
+	  object.value = object.value.slice(0, object.maxLength)
+	if (object.value > 100)
+	  object.value = 100
+	if (object.value < 0)
+		  object.value = 0
+}
+  
 function content() {
 	if (status === statuses[2]) {
 		return <>
@@ -263,7 +274,7 @@ function content() {
 				<br/>
 			<Row className="justify-content-md-center">
 				<Col xs={12} sm={6} xl={6} className="mb-4">
-					<input id={'newGrade'} className="userInput text-center" style={{height:"35px", width:"120px"}} placeholder='0 - 100'/>
+					<input type="number" maxLength="3" onInput={maxLengthCheck.bind(this)} id={'newGrade'} className="userInput text-center" style={{height:"35px", width:"120px"}} placeholder='0 - 100'/>
 				</Col>
 				<Col xs={12} sm={6} xl={6} className="mb-4">
 					<select name="type" id="type" style={{height:"35px", width:"120px"}}>
