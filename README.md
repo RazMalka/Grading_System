@@ -1,7 +1,7 @@
 # Course Grading System
 
-![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)  Live Site: https://braudegradingclient.herokuapp.com
-Please note that the live site might take about a minute to serve at first. That is because of Heroku's serving policy after a certain inactivity period.
+![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)  Live Site: https://braudegradingclient.herokuapp.com \
+<b>Please note</b> that the live site might take about a minute to serve at first. That is because of Heroku's serving policy after a certain inactivity period.
 
 ### Brief
 ```
